@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Memory Lane</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;500&family=Lora:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #feffe9;
+    }
+
+    #login-section {
+      background: url('foto/bgpts.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      backdrop-filter: blur(6px);
+    }
+
+    .login-box {
+      background: #e4f8ba;
+      border-radius: 20px;
+      padding: 40px;
+      width: 300px;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+      text-align: center;
+      color: rgb(180, 0, 0);
+      animation: fadeIn 1.5s ease;
+    }
+
+    .login-box h2 {
+      font-family: 'Parisienne', cursive;
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .login-box input, .login-box button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .login-box input {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    .login-box input:focus {
+      outline: none;
+      background-color: #fefee9;
+      box-shadow: 0 0 5px #fff;
+    }
+
+    .login-box button {
+      background-color: #fefee9;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .login-box button:hover {
+      background: #fad0c4;
+    }
+
+    #error {
+      color: #ff4c4c;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    #main-content {
+      display: none;
+      animation: fadeIn 1s ease-in;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #c6e99f;
+    }
+
+    header h1 {
+      font-family: 'Lora', serif;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+    }
+
+    .gallery a img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .gallery a img:hover {
+      transform: scale(1.05);
+    }
+
+    .gallery figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #c6e99f;
+      font-style: italic;
+    }
+
+    .flower {
+      position: fixed;
+      top: -50px;
+      width: 30px;
+      height: 30px;
+      background-image: url('foto/sakura.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div id="login-section">
+    <div class="login-box">
+      <h2>Welcome, Hiraku 💕</h2>
+      <input type="password" id="password" placeholder="enter our secret password...">
+      <button onclick="login()">Enter</button>
+      <p id="error"></p>
+    </div>
+  </div>
+
+  <div id="main-content">
+    <audio autoplay loop hidden>
+      <source src="TXTlovesong.mp3" type="audio/mpeg">
+    </audio>
+
+    <header>
+      <h1>Our Memory Lane</h1>
+      <p>Every photo has a story, and ours is my favorite.</p>
+      <p>I'm Yours, You're Mine.</p>
+    </header>
+
+    <section class="gallery">
+    <figure>
+      <a href="foto/1pts.png" data-lightbox="memories" data-title="Di hari pertama kita ketemu, tapi kamu malah ilang tiba tiba, dan akhirnya aku sama si hitam membuat colony sendiri">
+        <img src="foto/1pts.png" alt="First Meet">
+      </a>
+      <figcaption>Hari Pertama Kita Ketemu</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/2pts.png" data-lightbox="memories" data-title="Ini sebenarnya hari kedua kita, tapi karena kamunya nyerah.. eh maksudnya mau makan dan akhirnya aku ngelanjutin bareng mereka berdua">
+        <img src="foto/2pts.png" alt="Mount Summit">
+      </a>
+      <figcaption>Hari Kedua - Nyerah Makan</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/3pts.jpg" data-lightbox="memories" data-title="Random selfie... ada yang marah waktu summit wkwkkw">
+        <img src="foto/3pts.jpg" alt="Selfie">
+      </a>
+      <figcaption>Hampir Gak selesai Marahnya</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/4pts.png" data-lightbox="memories" data-title="Orang Serius, tapi katanya gatau tuh mau diseriusin apa enggak...">
+        <img src="foto/4pts.png" alt="Birthday surprise">
+      </a>
+      <figcaption>Mau Serius katanya</figcaption>
+    </figure>
+    
+  </section>
+
+  <section class="gallery">
+    <figure>
+      <a href="foto/7pts.png" data-lightbox="memories" data-title="Ada yang kalah sampe 6 kali gess, langsung minta ganti game wkkwkw">
+        <img src="foto/7pts.png" alt="yang kompe">
+      </a>
+      <figcaption>Ada yang Kompe Tapi Kalah</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/6pts.png" data-lightbox="memories" data-title="Ini orang gatau lagi kesambet apa, tumben mau tiduran disampingku sambil peluk kecil">
+        <img src="foto/6pts.png" alt="Selfie">
+      </a>
+      <figcaption>That One Night</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/5pts.jpg" data-lightbox="memories" data-title="Katanya mah I Hate You, tapi kok malemnya pas mau udahan tiba tiba bilang I Love You wkwkw">
+        <img src="foto/5pts.jpg" alt="Selfie">
+      </a>
+      <figcaption>I Hate You - I Love You</figcaption>
+    </figure>
+
+    <figure>
+      <a href="foto/8pts.png" data-lightbox="memories" data-title="Orang-orang harus iri sihhh kalo denger isi VN nya, special banget buat guweh">
+        <img src="foto/8pts.png" alt="Selfie">
+      </a>
+      <figcaption>Special VN <3 </figcaption>
+    </figure>
+  </section>
+
+
+    <footer>
+      <p>I want to make memories with you, just like this — forever.</p>
+      <p>Since May 22, 2025</p>
+    </footer>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+  <script>
+    function login() {
+      const input = document.getElementById('password').value;
+      const correctPassword = "hiraku";
+      if (input === correctPassword) {
+        document.getElementById('login-section').style.display = "none";
+        document.getElementById('main-content').style.display = "block";
+      } else {
+        document.getElementById('error').textContent = "Oops! Wrong password 🥺";
+      }
+    }
+
+    const numFlowers = 20;
+    const flowerUrl = "foto/sakura.png";
+
+    for (let i = 0; i < numFlowers; i++) {
+      const flower = document.createElement("img");
+      flower.src = flowerUrl;
+      flower.className = "flower";
+      flower.style.left = Math.random() * window.innerWidth + "px";
+      flower.style.opacity = Math.random();
+      document.body.appendChild(flower);
+      const duration = 10 + Math.random() * 10;
+      flower.animate([
+        { transform: `translateY(0)` },
+        { transform: `translateY(${window.innerHeight + 100}px)` }
+      ], {
+        duration: duration * 1000,
+        iterations: Infinity,
+        delay: Math.random() * 5000
+      });
+    }
+  </script>
+</body>
+</html>
